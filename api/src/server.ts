@@ -1,19 +1,6 @@
-import {z} from 'zod'
+import app from "./app";
 
-const userSchema = z.object({
-  name: z.string().nonempty({message: 'Name is required'}).toUpperCase(),
-  age: z.number().min(18, {message: 'Você tem que ser maior de idade'})
-})
+const port = 3001
 
-type User = z.infer<typeof userSchema>
-
-function saveUser(user: User) {
-  const {name, age} = userSchema.parse(user)
-
-  console.log(name, age)
-}
-
-saveUser({
-  name: 'Lucas',
-  age: 20
-})
+app.listen(port, () =>
+console.log(`🚀 Server running on port: http://localhost:${port}`))
