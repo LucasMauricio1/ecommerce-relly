@@ -1,9 +1,9 @@
-import {Router, Request, Response} from 'express'
+import { Router, Request, Response } from 'express'
 
 const routes = Router()
 
 routes.get('/', (request: Request, response: Response) => {
-  return response.json({message: 'Hello World with Typescript'})
+  return response.json({ message: 'Hello World with Typescript' })
 })
 
 export default routes
